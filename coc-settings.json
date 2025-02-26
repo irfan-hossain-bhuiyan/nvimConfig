@@ -1,0 +1,10 @@
+{
+ "rust-analyzer.server.path": "/data/data/com.termux/files/usr/bin/rust-analyzer",
+ "zig.path": "$PREFIX/bin/zls",
+ "languageserver": {
+        "lua":{"command": "lua-language-server",
+        "trace.server": "verbose",
+        "filetypes": ["lua"]}
+ }
+}
+

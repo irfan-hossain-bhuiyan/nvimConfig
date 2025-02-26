@@ -1,0 +1,25 @@
+{
+    "workspace.library": [
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/neodev.nvim/types/stable",
+        "/data/data/com.termux/files/usr/share/nvim/runtime/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/LuaSnip/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/neodev.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/nvim-dap/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/nvim-dap-ui/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/nvim-treesitter/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/packer.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/plenary.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/rose-pine/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/rust-tools.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua",
+        "/data/data/com.termux/files/home/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ],
+    "diagnostics.globals": [
+        "terminal_toggle"
+    ]
+}
