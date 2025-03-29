@@ -1,5 +1,14 @@
 local lsp_zero = require('lsp-zero')
 require('after.plugins.snippet')
+-- Add cmp_nvim_lsp capabilities settings to lspconfig
+-- This should be executed before you configure any language server
+local lspconfig_defaults = require('lspconfig').util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+	'force',
+	lspconfig_defaults.capabilities,
+	require('cmp_nvim_lsp').default_capabilities()
+)
+
 --lua api setup for lsp
 lsp_zero.on_attach(function(client, bufnr)
 	local opt = { buffer = bufnr }
@@ -10,6 +19,16 @@ lsp_zero.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "rn", function() vim.lsp.buf.rename() end, opt)
 	vim.keymap.set("n", "cf", function() vim.lsp.buf.format() end, opt)
 	vim.keymap.set("i", "<C-s>", function() vim.lsp.buf.signature_help() end, opt)
+	--vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+	--vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+	--vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+	--vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+	--vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+	--vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+	--vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+	--vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+	--vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+	--vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 end)
 require 'lspconfig'.ts_ls.setup {}
 require 'lspconfig'.clangd.setup {}
@@ -60,12 +79,14 @@ cmp.setup({
 		-- Navigate between snippet placeholder
 		['<M-Up>'] = cmp.mapping.scroll_docs(-10),
 		['<M-Down>'] = cmp.mapping.scroll_docs(10),
+
+		['<Tab>'] = cmp_action.luasnip_jump_forward(),
+		['<S-Tab>'] = cmp_action.luasnip_jump_backward(),
 	}),
-	['<C-Left>'] = cmp_action.luasnip_jump_forward(),
-	['<C-Right>'] = cmp_action.luasnip_jump_backward(),
 	snippet = {
 		expand = function(args)
 			require('luasnip').lsp_expand(args.body)
+			--vim.snippet.expand(args.body)
 		end,
 	}
 })

@@ -8,9 +8,11 @@ local cHeader=s({trig="ifndef", descr="Create c header condition"}, {
     i(1, "HEADER_H"),
     t({"","#define "}),
     rep(1),
+    t({"",""}),
+    i(2,"code"),
     t({"","","#endif"})
   })
 
 ls.add_snippets('c', {cHeader})
-ls.add_snippets('h', {cHeader})
+ls.add_snippets('cpp', {cHeader})
 -- local ts_utils=require("nvim")
